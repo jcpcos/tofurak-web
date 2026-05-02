@@ -1,74 +1,87 @@
 <app-header></app-header>
 
 <div class="full-body-download">
-
-  <div class="download-header">
-    <div class="download-title">
-      <img src="/assets/download/d_logo.png" alt="Logo" />
-      <span>DESCARGAR {{ serverName }}</span>
+  <!-- SECCIÓN HERO CON TÍTULO -->
+  <div class="download-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">DESCARGA</h1>
+      <h2 class="hero-subtitle">{{ serverName.toUpperCase() }}</h2>
+      <p class="hero-description">DISPONIBLE PARA WINDOWS Y MACOS</p>
     </div>
   </div>
 
+  <!-- SECCIÓN PRINCIPAL DE DESCARGAS -->
   <div class="download-main">
-
-    <div class="download-buttons">
-
-      <!-- CLIENTE PORTABLE -->
-      <a 
-        class="download-card"
-        href="https://www.mediafire.com/file/sqtx9h1709m91kc/Aermyfus_Retro_Remastered.zip/file"
+    <!-- CARD RECOMENDADA DESTACADA -->
+    <div class="featured-download">
+      <div class="featured-badge">RECOMENDADO</div>
+      <a
+        class="featured-card"
+        href="/TofurakLauncher.exe"
         target="_blank"
         rel="noopener noreferrer">
-
-        <div class="card-title">DESCARGAR CLIENTE PORTABLE</div>
-        <div class="card-subtitle">REMASTERED (32 - 64 BITS)</div>
-        <div class="card-version">Versión: 1.47.3</div>
+        <div class="featured-icon">
+          <img src="/assets/download/d_logo.png" alt="Launcher Logo" />
+        </div>
+        <h3 class="featured-title">Descargar Launcher</h3>
+        <p class="featured-description">
+          Instalación guiada, actualizaciones automáticas y gestión de cuentas en un solo clic. La
+          forma más sencilla de jugar.
+        </p>
+        <div class="featured-version">v {{ version }}</div>
       </a>
-
-      <!-- LAUNCHER RECOMENDADO -->
-      <a 
-        class="download-card recommended"
-        href="/AermyLauncher.exe"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <div class="card-title">DESCARGAR LAUNCHER</div>
-        <div class="card-subtitle">RECOMENDADO</div>
-        <div class="card-version">Versión: 1.47.3</div>
-      </a>
-
-      <!-- CLIENTE BÁSICO -->
-      <a 
-        class="download-card"
-        href="https://www.mediafire.com/file/c5vmz85wkjzbn78/Aermyfus_Retro_%2528W7%2529.zip/file"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <div class="card-title">DESCARGAR CLIENTE BÁSICO</div>
-        <div class="card-subtitle">PC DE BAJOS RECURSOS (32 BITS)</div>
-        <div class="card-version">Versión: 1.47.3</div>
-      </a>
-
     </div>
 
-    <div class="download-links">
-      <div>Descargar otra versión</div>
-      
-      <a href="https://www.mediafire.com/file/lxm0fbfzw7mfg2z/Aermyfus_Retro.zip/file">Mac OS* (Remasterizado)</a>
-      <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non">¿Un problema de instalación?</a>
-    </div>
+    <!-- OTRAS OPCIONES DE DESCARGA -->
+    <div class="download-options-section">
+      <h3 class="options-title">OTRAS VERSIONES</h3>
+      <div class="download-cards">
+        <!-- CLIENTE PORTABLE -->
+        <a class="download-card" href="" target="_blank" rel="noopener noreferrer">
+          <div class="card-header">
+            <span class="card-size">32 / 64 BITS</span>
+          </div>
+          <h4 class="card-title">Cliente Portátil</h4>
+          <p class="card-description">Cliente para Windows sin launcher.</p>
+          <div class="card-version">v {{ version }}</div>
+          <div class="card-link">Descargar →</div>
+        </a>
 
+        <!-- CLIENTE BÁSICO -->
+        <a class="download-card" href="" target="_blank" rel="noopener noreferrer">
+          <div class="card-header">
+            <span class="card-size">32 BITS</span>
+          </div>
+          <h4 class="card-title">Cliente Básico</h4>
+          <p class="card-description">Versión ligera para equipos de bajos recursos.</p>
+          <div class="card-version">v {{ version }}</div>
+          <div class="card-link">Descargar →</div>
+        </a>
+
+        <!-- CLIENTE MACOS -->
+        <a class="download-card" href="" target="_blank" rel="noopener noreferrer">
+          <div class="card-header">
+            <span class="card-size">MACOS</span>
+          </div>
+          <h4 class="card-title">Cliente macOS</h4>
+          <p class="card-description">Versión remasterizada para Mac.</p>
+          <div class="card-version">v {{ version }}</div>
+          <div class="card-link">Descargar →</div>
+        </a>
+      </div>
+    </div>
   </div>
+
+
 
   <div class="download-howto">
     <div class="howto-title">¿Cómo instalar el juego?</div>
 
     <div class="howto-videos">
-
       <div class="howto-step">
         <img src="/assets/download/how-to-install1.jpg" alt="Paso 1" />
         <div class="howto-overlay">
-          <span class="howto-text">1. Descargar el AermyLauncher</span>
+          <span class="howto-text">1. Descargar el TofurakLauncher</span>
         </div>
       </div>
 
@@ -85,10 +98,18 @@
           <span class="howto-text">3. Crea tu personaje</span>
         </div>
       </div>
-
     </div>
   </div>
 
+  <!-- PROBLEMAS CON LA INSTALACIÓN -->
+  <div class="installation-help">
+    <p class="help-text">
+      ¿Problemas con la instalación?
+      <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" rel="noopener noreferrer">
+        Escríbenos por WhatsApp
+      </a>
+    </p>
+  </div>
 </div>
 
 <app-footer></app-footer>

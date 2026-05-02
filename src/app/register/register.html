@@ -15,7 +15,7 @@
         <div class="auth-field">
           <span class="auth-label">Cuenta <b>*</b></span>
           <input class="auth-input" type="text" placeholder="Cuenta" formControlName="username" (blur)="onBlur('username')">
-          <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid" class="auth-error">
             {{ getError('username') }}
           </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="auth-field">
           <span class="auth-label">Nombre <b>*</b></span>
           <input class="auth-input" type="text" placeholder="Nombre" formControlName="name" (blur)="onBlur('name')">
-          <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid" class="auth-error">
             {{ getError('name') }}
           </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="auth-field">
           <span class="auth-label">Apellido <b>*</b></span>
           <input class="auth-input" type="text" placeholder="Apellido" formControlName="lastname" (blur)="onBlur('lastname')">
-          <div *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.invalid" class="auth-error">
             {{ getError('lastname') }}
           </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="auth-field">
           <span class="auth-label">Apodo <b>*</b></span>
           <input class="auth-input" type="text" placeholder="Apodo" formControlName="nickname" (blur)="onBlur('nickname')">
-          <div *ngIf="registerForm.get('nickname')?.touched && registerForm.get('nickname')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('nickname')?.touched && registerForm.get('nickname')?.invalid" class="auth-error">
             {{ getError('nickname') }}
           </div>
         </div>
@@ -47,7 +47,7 @@
         <div class="auth-field">
           <span class="auth-label">Correo electrónico <b>*</b></span>
           <input class="auth-input" type="email" placeholder="Correo electrónico" formControlName="email" (blur)="onBlur('email')">
-          <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid" class="auth-error">
             {{ getError('email') }}
           </div>
         </div>
@@ -68,7 +68,7 @@
               </span>
             </button>
           </div>
-          <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="auth-error">
             {{ getError('password') }}
           </div>
         </div>
@@ -89,7 +89,7 @@
               </span>
             </button>
           </div>
-          <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid" class="auth-error">
             {{ getError('confirmPassword') }}
           </div>
         </div>
@@ -97,7 +97,7 @@
         <div class="auth-field">
           <span class="auth-label">Pregunta secreta <b>*</b></span>
           <input class="auth-input" type="text" placeholder="Pregunta secreta" formControlName="secretQuestion" (blur)="onBlur('secretQuestion')">
-          <div *ngIf="registerForm.get('secretQuestion')?.touched && registerForm.get('secretQuestion')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('secretQuestion')?.touched && registerForm.get('secretQuestion')?.invalid" class="auth-error">
             {{ getError('secretQuestion') }}
           </div>
         </div>
@@ -105,14 +105,14 @@
         <div class="auth-field">
           <span class="auth-label">Respuesta secreta <b>*</b></span>
           <input class="auth-input" type="text" placeholder="Respuesta secreta" formControlName="secretAnswer" (blur)="onBlur('secretAnswer')">
-          <div *ngIf="registerForm.get('secretAnswer')?.touched && registerForm.get('secretAnswer')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('secretAnswer')?.touched && registerForm.get('secretAnswer')?.invalid" class="auth-error">
             {{ getError('secretAnswer') }}
           </div>
         </div>
  
         <div class="auth-field">
           <span class="auth-label">Fecha de nacimiento <b>*</b></span>
-          <div style="display:flex; gap:10px;">
+          <div class="date-selects">
             <select class="auth-input" formControlName="day" (blur)="onBlur('day')">
               <option value="">Día</option>
               <option *ngFor="let d of days" [value]="d">{{d}}</option>
@@ -126,7 +126,7 @@
               <option *ngFor="let y of years" [value]="y">{{y}}</option>
             </select>
           </div>
-          <div *ngIf="(registerForm.get('day')?.touched && registerForm.get('day')?.invalid) || (registerForm.get('month')?.touched && registerForm.get('month')?.invalid) || (registerForm.get('year')?.touched && registerForm.get('year')?.invalid)" class="auth-error" style="color: red;">
+          <div *ngIf="(registerForm.get('day')?.touched && registerForm.get('day')?.invalid) || (registerForm.get('month')?.touched && registerForm.get('month')?.invalid) || (registerForm.get('year')?.touched && registerForm.get('year')?.invalid)" class="auth-error">
             {{ getError('day') || getError('month') || getError('year') }}
           </div>
         </div>
@@ -143,7 +143,7 @@
             <option value="7">7 cuentas</option>
             <option value="8">8 cuentas</option>
           </select>
-          <div *ngIf="registerForm.get('accounts')?.touched && registerForm.get('accounts')?.invalid" class="auth-error" style="color: red;">
+          <div *ngIf="registerForm.get('accounts')?.touched && registerForm.get('accounts')?.invalid" class="auth-error">
             {{ getError('accounts') }}
           </div>
         </div>

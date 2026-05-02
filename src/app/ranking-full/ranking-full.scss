@@ -1,3 +1,9 @@
+$rank-gold: #f5c625;
+$rank-gold-light: #ffd95a;
+$rank-gold-dark: #c89300;
+$rank-ink: #16110a;
+$rank-panel: rgba(24, 18, 9, 0.9);
+
 .full-body {
   position: relative;
   min-height: 100vh;
@@ -7,19 +13,17 @@
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 10, 7, 0) 60%,
-      rgba(0, 10, 7, 0.9) 85%,
-      rgba(0, 10, 7, 1) 100%
+      rgba(15, 12, 6, 0.15) 0%,
+      rgba(15, 12, 6, 0.76) 68%,
+      rgba(15, 12, 6, 1) 100%
     ),
     url("/assets/home-backgrounds/bg-moon.jpg");
 
   background-repeat: no-repeat;
   background-position: center top;
 
-  /* 👇 CLAVE */
   background-size: 200vw 200vh;
-
-  background-color: #000a07;
+  background-color: #0f0c06;
 }
 
 
@@ -30,9 +34,9 @@
   z-index: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 10, 7, 0) 60%,
-    rgba(0, 10, 7, 0.9) 85%,
-    rgba(0, 10, 7, 1) 100%
+    rgba(15, 12, 6, 0) 55%,
+    rgba(15, 12, 6, 0.85) 86%,
+    rgba(15, 12, 6, 1) 100%
   );
   pointer-events: none;
 }
@@ -51,9 +55,9 @@
 
   background: linear-gradient(
     to bottom,
-    rgba(0, 10, 7, 0) 0%,
-    rgba(0, 10, 7, 0.6) 50%,
-    rgba(0, 10, 7, 1) 100%
+    rgba(15, 12, 6, 0) 0%,
+    rgba(15, 12, 6, 0.6) 50%,
+    rgba(15, 12, 6, 1) 100%
   );
 }
 
@@ -65,22 +69,24 @@
 }
 
 .rank-tabs button.active {
-  color: #ffffff;
+  color: $rank-ink;
   background: linear-gradient(
     to bottom,
-    #4a3a26,
-    #3a2b1b
+    $rank-gold-light,
+    $rank-gold
   );
 
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.6),
-    0 0 8px rgba(151, 168, 0, 0.6);
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 16px rgba(245, 198, 37, 0.35);
 
-  border-bottom: 2px solid #97a800;
+  border-bottom: 2px solid $rank-gold-dark;
 }
 .ranking-card {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 12px;
+  background: linear-gradient(135deg, rgba(245, 198, 37, 0.12), rgba(24, 18, 9, 0.88));
+  border: 1px solid rgba(245, 198, 37, 0.26);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.36);
+  padding: 14px;
   border-radius: 8px;
 }
 
@@ -89,11 +95,13 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #97a800;
-  border-bottom: 1px solid #6f780d;
-  padding: 10px 16px;
+  background: linear-gradient(135deg, $rank-gold-light 0%, $rank-gold 52%, $rank-gold-dark 100%);
+  border: 1px solid rgba(255, 217, 90, 0.55);
+  border-bottom-color: rgba(200, 147, 0, 0.85);
+  border-radius: 6px;
+  padding: 12px 16px;
   color: #fff;
-  text-shadow: 0 2px 2px #888;
+  text-shadow: none;
 }
 
 .rank-badge {
@@ -101,7 +109,7 @@
   height: 56px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
 }
 
 .rank-title h1 {
@@ -109,13 +117,15 @@
   font-size: 34px;
   line-height: 34px;
   text-transform: uppercase;
+  color: $rank-ink;
 }
 
 .rank-title p {
   margin: 4px 0 0;
   font-family: Roboto, sans-serif;
   font-size: 14px;
-  color: #f6f6f6;
+  color: rgba(22, 17, 10, 0.78);
+  font-weight: 700;
   text-shadow: none;
 }
 
@@ -127,18 +137,18 @@
   display: flex;
   gap: 0;
   padding: 0;
-  border: 1px solid #867553;
-  background: #2f2317;
+  border: 1px solid rgba(245, 198, 37, 0.34);
+  background: rgba(22, 17, 10, 0.9);
   border-radius: 8px;
   overflow: hidden;
   margin: 12px 0;
 }
 
 .rank-tabs button {
-  flex: 1 1 33.333%;
+  flex: 1 1 25%;
   border: 0;
   background: transparent;
-  color: #f0ebdf;
+  color: #f7efd3;
   font-family: Roboto, sans-serif;
   font-size: 13px;
   font-weight: 900;
@@ -150,20 +160,21 @@
 }
 
 .rank-tabs button:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(245, 198, 37, 0.12);
+  color: #ffffff;
 }
 
 .rank-tabs button.active {
-  color: #ffffff;
+  color: $rank-ink;
 }
 
 .rank-tabs-indicator {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 33.333%;
+  width: 25%;
   height: 3px;
-  background: #97a800;
+  background: $rank-gold;
   transition: transform 260ms ease;
 }
 
@@ -195,8 +206,8 @@
    ESTADOS
    ========================= */
 .rank-states {
-  background: rgba(48, 34, 23, 0.9);
-  border: 1px solid #4f3b2a;
+  background: $rank-panel;
+  border: 1px solid rgba(245, 198, 37, 0.24);
   color: #fff;
   padding: 12px;
   border-radius: 6px;
@@ -220,8 +231,8 @@
 }
 
 .rank-table thead th {
-  background: #a5a288;
-  color: #362712;
+  background: linear-gradient(180deg, $rank-gold-light, $rank-gold);
+  color: $rank-ink;
   text-align: left;
   font-size: 13px;
   font-weight: 800;
@@ -230,20 +241,22 @@
 }
 
 .rank-table tbody td {
-  background: #f3f2ed;
+  background: #fff8dc;
   color: #362712;
   padding: 10px;
-  border-bottom: 1px solid #b1ac9c;
+  border-bottom: 1px solid rgba(200, 147, 0, 0.25);
   font-size: 14px;
 }
 
 .rank-table tbody tr:nth-child(even) td {
-  background: #ece9e1;
+  background: #f4eccb;
 }
 
 .rank-table tbody tr.top-row td {
-  background: #302217;
+  background: linear-gradient(180deg, #3a2b14, #241a0c);
   color: #fff;
+  border-bottom-color: rgba(245, 198, 37, 0.42);
+  font-weight: 800;
 }
 
 .name-cell {
@@ -257,19 +270,33 @@
   height: 32px;
   border-radius: 6px;
   object-fit: cover;
+  background: rgba(22, 17, 10, 0.12);
+  box-shadow: 0 0 0 1px rgba(245, 198, 37, 0.24);
 }
 
 .empty-state {
-  background: #f3f2ed;
+  background: #fff8dc;
   color: #4a3929;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   padding: 14px;
-  border: 1px solid #b1ac9c;
+  border: 1px solid rgba(200, 147, 0, 0.34);
   border-radius: 4px;
 }
 
 @media (max-width: 768px) {
+  .ranking-shell {
+    width: min(100% - 16px, 1120px);
+  }
+
+  .ranking-card {
+    padding: 10px;
+  }
+
+  .rank-title {
+    align-items: flex-start;
+  }
+
   .rank-title h1 {
     font-size: 28px;
     line-height: 28px;
@@ -278,5 +305,13 @@
   .rank-badge {
     width: 48px;
     height: 48px;
+  }
+
+  .rank-tabs {
+    flex-wrap: wrap;
+  }
+
+  .rank-tabs button {
+    flex-basis: 50%;
   }
 }

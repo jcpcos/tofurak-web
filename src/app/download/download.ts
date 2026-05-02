@@ -17,30 +17,6 @@ import { Footer } from '../footer/footer';
 })
 export class DownloadComponent {
 
-  serverName = 'Aermyfus';
-  version = '1.82';
-
-  downloads = [
-    {
-      title: 'DESCARGAR CLIENTE PORTABLE',
-      subtitle: 'SIN LAUNCHER (32 - 64 BITS)',
-      version: this.version,
-      recommended: false,
-      url: '#'
-    },
-    {
-      title: 'DESCARGAR LAUNCHER',
-      subtitle: 'RECOMENDADO',
-      version: this.version,
-      recommended: true,
-      url: '#'
-    },
-    {
-      title: 'DESCARGAR CLIENTE BÁSICO',
-      subtitle: 'PC DE BAJOS RECURSOS (32 BITS)',
-      version: this.version,
-      recommended: false,
-      url: '#'
-    }
-  ];
+  serverName = 'Tofurak';
+  version = '1.82 - Gratis';
 }

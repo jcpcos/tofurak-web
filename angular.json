@@ -77,8 +77,8 @@
 			"port": 7070,
 			"host": "0.0.0.0",
 			"allowedHosts": [
-			  "web.aermyfus.com",
-			  "aermyfus.com",
+			  "web.tofurak.com",
+			  "tofurak.com",
 			  "localhost"
 			]
 		  }
