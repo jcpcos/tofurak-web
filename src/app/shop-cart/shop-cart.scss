@@ -7,7 +7,7 @@
 .checkout-wrapper {
     width: 100%;
     min-height: calc(100vh - 68px);
-    background-color: #ffffff;
+    background-color: #fff3c4;
     margin: 0;
     border-radius: 0;
     overflow-x: clip;
@@ -40,7 +40,7 @@
 }
 
 .section-title {
-    font-family: 'geomanist-regular';
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #444;
@@ -217,7 +217,7 @@
 }
 
 .summary-title {
-    font-family: 'geomanist-regular';
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-weight : 500;
     font-size: 1.5rem;
     color: #41403d;
@@ -350,7 +350,7 @@
     border-radius: 999px;
     padding: 14px 18px;
     color: #fff;
-    font-family: 'geomanist-regular';
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: 0.95rem;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -436,7 +436,7 @@
 }
 
 .title-payment {
-    font-family: 'geomanist-regular';
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     color: #000000;
     text-transform: uppercase;
