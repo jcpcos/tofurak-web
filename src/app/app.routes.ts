@@ -74,12 +74,15 @@ export const routes: Routes = [
     component: Evento,
     data: { animation: 'EventoPage'}
   },
-
   {
+  path: 'shop',
+  component: BodyFull,
+  data: { animation: 'ShopPage' }
+}, /*{
   path: 'shop',
   component: Shop,
   data: { animation: 'ShopPage' }
-},
+},*/
 {
   path: 'shop-cart',
   component: ShopCart,
