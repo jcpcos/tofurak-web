@@ -1,28 +1,38 @@
-<div class="ak-scroll">
-</div>
-<div class="ak-fixedbar">
-    <div class="ak-content-fixedbar">
-        <div class="ak-btns">
-            <a class="ak-btn-play" href="/download">
-                <span>JUGAR</span>
-                Gratis
-            </a>
-            <a class="ak-btn-retro" href="/register">
-                REGISTRATE
-                <span>VAMOS
-                    <span></span>
-                </span>
-            </a>
-        </div>
-        <div class="ak-block-video" [ngClass]="{'ak-open': isOpen}">
-            <a class="ak-btn-reduce" [ngClass]="{'ak-open': isOpen}" (click)="reduceVideo()"></a>
-            <div class="ak-text">
-              <div class="ak-title"><b>GUÍAS</b></div>
-              <div class="ak-baseline">TUTORIALES Y <B>OTROS</B></div>
-            </div>
-            <div class="ak-videos-container">
-              <a target="_blank" href="https://www.youtube.com/shorts/3ut1FUH-JFU" class="ak-btn-video ak-modal-trigger" (click)="openModal()"></a>
-            </div>
-            <script type="application/json" [attr.data-config]="modalConfig"></script>
-          </div>
+<div class="ak-fixedbar" aria-label="Accesos rapidos">
+  <div class="ak-content-fixedbar">
+    <a class="ak-scroll" href="#top" aria-label="Volver arriba">
+      <span></span>
+    </a>
+
+    <a class="ak-btn-retro" href="/register">
+      <span class="ak-icon ak-icon-account"></span>
+      <span class="ak-label">
+        Registrate
+        <b>Vamos</b>
+      </span>
+      <span class="ak-icon ak-icon-arrow"></span>
+    </a>
+
+    <a class="ak-btn-play" href="/download">
+      <span>Jugar</span>
+      <b>Gratis</b>
+    </a>
+
+    <div class="ak-block-video">
+      <a
+        target="_blank"
+        href="https://www.youtube.com/shorts/3ut1FUH-JFU"
+        class="ak-guide-link"
+        (click)="openModal()"
+      >
+        <span class="ak-guide-copy">
+          <b>Guias</b>
+          Tutoriales y otros
+        </span>
+        <span class="ak-guide-play"></span>
+      </a>
+
+      <script type="application/json" [attr.data-config]="modalConfig"></script>
     </div>
+  </div>
+</div>
