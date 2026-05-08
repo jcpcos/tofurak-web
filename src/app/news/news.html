@@ -12,13 +12,7 @@
         <div class="card-news" [ngClass]="{'card-news-big':news.big == 1}" *ngFor="let news of serverNews">
           <div class="contenedor-noticias">
             <div class="img-card-new" (click)="goNew(news)">
-              <img
-                class="img-responsive-news"
-                [src]="news.imagen"
-                [alt]="news.titulo || 'Noticia'"
-                loading="lazy"
-                (error)="onImageError($event)"
-              />
+              <img class="img-responsive-news" src={{news.imagen}} />
             </div>
             <div class="container-body-news">
               <div class="title-container">
