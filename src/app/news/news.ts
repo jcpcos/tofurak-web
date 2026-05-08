@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Hart } from '../services/hart';
+import { API_BASE } from '../services/api.constants';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 
@@ -18,6 +19,7 @@ import { Footer } from '../footer/footer';
 })
 export class News implements OnInit {
   serverNews: any[] = [];
+  readonly fallbackImage = 'assets/news-cards/7.jpg';
 
   constructor(
     private hart: Hart,
@@ -38,7 +40,7 @@ export class News implements OnInit {
             id: item.id,
             titulo: item.titulo,
             descripcion: item.descripcion,
-            imagen: item.imagen_url,
+            imagen: this.getImageUrl(item.imagen_url ?? item.imageUrl ?? item.imagen),
             date: new Date(item.fecha).toLocaleDateString(),
             big: 0
           }));
@@ -53,5 +55,32 @@ export class News implements OnInit {
 
   goNew(news: any) {
     this.router.navigate(['/new', news.id]);
+  }
+
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img.src.endsWith(this.fallbackImage)) {
+      return;
+    }
+
+    img.src = this.fallbackImage;
+  }
+
+  private getImageUrl(image?: string): string {
+    const value = String(image ?? '').trim();
+
+    if (!value) {
+      return this.fallbackImage;
+    }
+
+    if (value.startsWith('//')) {
+      return `https:${value}`;
+    }
+
+    if (/^https?:\/\//i.test(value) || value.startsWith('assets/')) {
+      return value;
+    }
+
+    return `${API_BASE}/${value.replace(/^\/+/, '')}`;
   }
 }
