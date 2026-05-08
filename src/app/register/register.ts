@@ -307,6 +307,10 @@ export class Register implements OnDestroy, OnInit {
     this.router.navigate(['/login']);
   }
 
+  goToHome() {
+    this.router.navigate(['/']);
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
