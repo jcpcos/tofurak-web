@@ -1,0 +1,42 @@
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  width: 69px;
+  height: 220px;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  background: url("/assets/backtotop.png") 0 0 / 69px 440px no-repeat transparent;
+  border: 0;
+  cursor: pointer;
+  transform: translateY(18px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.back-to-top-visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background-position: 0 -258px;
+}
+
+@media (max-width: 760px) {
+  .back-to-top {
+    right: 8px;
+    bottom: 8px;
+    transform: scale(0.82) translateY(18px);
+    transform-origin: right bottom;
+  }
+
+  .back-to-top-visible {
+    transform: scale(0.82) translateY(0);
+  }
+}

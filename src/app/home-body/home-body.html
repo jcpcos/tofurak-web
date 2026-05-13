@@ -1,76 +1,29 @@
-
-<div class="chonchito-scroll" *ngIf="chonchito" (click)="scrollToTop()"></div>
 <div class="full-body-home">
 
   <div class="hero-image-block">
-    <div class="hero-image-content">
-      <div class="hero-image-inner">
-        <!-- Etiqueta mmorpg con animación -->
-        <div class="hero-badge">
-          <span class="badge-text">MMORPG EN LÍNEA</span>
+    <div class="retro-hero-shade"></div>
+
+    <div class="retro-hero-panel">
+      <h1>Gratouxia, tu historia renace aqui.</h1>
+
+      <div class="retro-hero-metrics">
+        <div>
+          <ng-container *ngIf="onlineCount$ | async as onlineCount">
+            <strong><i></i>{{ onlineCount }}</strong>
+          </ng-container>
+          <span>Online ahora</span>
         </div>
-
-        <!-- Título principal -->
-        <h1 class="hero-main-title">
-          un servidor como nunca antes
-          <span class="hero-highlight">lo has visto</span>
-        </h1>
-
-        <!-- Subtítulo -->
-        <p class="hero-subtitle">¿Te atreves a vivir esta aventura?</p>
-
-        <!-- Botones -->
-        <div class="hero-buttons">
-          <a routerLink="/download" class="btn-play">Jugar Ahora</a>
-          <a routerLink="/" class="btn-learn">Saber Más</a>
+        <div>
+          <strong>1.47.3</strong>
+          <span>Version</span>
+        </div>
+        <div>
+          <strong>En linea</strong>
+          <span>Servidor</span>
         </div>
       </div>
     </div>
-  </div>
 
-<div class="first-block"> 
-  
-    <video autoplay muted loop playsinline [muted]="true" class="bg-video-header">
-  <source src="../../assets/home-backgrounds/header.mp4" type="video/mp4">
-</video>
-
-    <div class="ak-block-content-start">
-      
-      <div class="ak-block-text-home-start hero-copy">
-  <p class="hero-line">
-¡El futuro comienza hoy! Tu MMORPG te abre las puertas para que seas protagonista 
-y escribas el próximo capítulo de su leyenda.
-
-  </p>
-
-  <p class="hero-line hero-line--bold">
-    ¿Listo/a para una aventura llamada TOFURAK?
-  </p>
-
-  <ng-container *ngIf="onlineCount$ | async as onlineCount">
-    <div class="hero-online" *ngIf="(+onlineCount) > 0">
-      <span class="hero-online__label">USUARIOS CONECTADOS :</span>
-      <span class="hero-online__value">{{ onlineCount }}</span>
-    </div>
-  </ng-container>
-
-  
-  <!-- <a class="hero-cta" routerLink="/register">¡REGISTRATE!</a>
-  
-  -->
-</div>
-
-
-
-
-
-
- 
-      <div class="//bottom-vote">
-        <a class="btn-vote"></a>
-      </div>
-
-    </div>
   </div>
 
   <div class="news-block">
@@ -92,7 +45,7 @@ y escribas el próximo capítulo de su leyenda.
                       <a class="a-news" [routerLink]="['/new', item.id]" [style.background-image]="'url(' + (item.imagen_url || item.imageUrl || '../../assets/news-cards/7.jpg') + ')'">
                         <div class="a-text">
                           <div class="a-infos">{{ item.categoria || item.category || 'INFO' }}</div>
-                          <div class="a-title">{{ item.titulo || item.title }}</div> 
+                          <div class="a-title">{{ item.titulo || item.title }}</div>
                         </div>
                       </a>
                     </ng-container>
@@ -108,7 +61,7 @@ y escribas el próximo capítulo de su leyenda.
         <div class="right-col">
           <div class="ak-text">
             <br />
-            <div class="ak-title"><!--{{global.serverName}}-->TOFURAK, DIVERSIÓN <br>GARANTIZADA!</div>
+            <div class="ak-title"><!--{{global.serverName}}-->GRATOXUIA, DIVERSIÓN <br>GARANTIZADA!</div>
             <div class="ak-baseline">
               Vive la aventura Ankalike<br>
               con la esencia del DOFUS original, <br />
@@ -166,7 +119,7 @@ y escribas el próximo capítulo de su leyenda.
           <div class="list-news">
             <div class="title-news">
               TIENDA
-              <a target="" class="ak-link-news-retro" href="https://www.tofurak.com/tienda">Mostrar todo</a>
+              <a target="" class="ak-link-news-retro" href="https://www.gratoxuia.com/tienda">Mostrar todo</a>
             </div>
           </div>
           <div class="slider-content">

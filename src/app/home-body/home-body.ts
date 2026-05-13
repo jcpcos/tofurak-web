@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgIf, AsyncPipe, NgForOf } from '@angular/common';
 import { ServerStatusService } from '../services/server-status.service';
 import { Hart } from '../services/hart';
@@ -24,7 +24,6 @@ export class HomeBody implements OnInit {
 
   constructor(
     public global: Globals,
-    private renderer: Renderer2,
     private serverStatus: ServerStatusService,
     private hart: Hart, 
   ) {}
@@ -67,16 +66,5 @@ export class HomeBody implements OnInit {
       }),
       startWith([[null, null], [null, null]])
     );
-  }
-
-  chonchito = false;
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event) {
-    const scrollY = window.scrollY || window.pageYOffset;
-    this.chonchito = scrollY > 500;
-  }
-
-  scrollToTop() {
-    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
   }
 }

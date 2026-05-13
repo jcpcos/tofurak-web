@@ -1,673 +1,259 @@
-@use "../../variables.scss";
-
-$download-gold: #f5c625;
-$download-gold-light: #ffd95a;
-$download-gold-dark: #c89300;
-$download-ink: #16110a;
-
-/* =====================================================
-   CONTENEDOR GENERAL
-   ===================================================== */
-.full-body-download {
+.download-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e1708 0%, #0f0c06 100%);
-  padding-bottom: 60px;
-  position: relative;
-  overflow-x: hidden;
-
-  /* oscurecido suave para legibilidad */
-  &::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(245, 198, 37, 0.18), transparent 38%),
-      rgba(0, 0, 0, 0.34);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* todo el contenido por encima */
-  > * {
-    position: relative;
-    z-index: 1;
-  }
+  overflow: hidden;
+  background: #2c1b12;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
-/* =====================================================
-   SECCIÓN HERO
-   ===================================================== */
 .download-hero {
-  padding-top: 100px;
-  padding-bottom: 60px;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-  border-bottom: 1px solid rgba(245, 198, 37, 0.18);
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.hero-title {
-  font-family: "Bebas Neue", cursive;
-  font-size: clamp(48px, 10vw, 120px);
-  line-height: 1;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  margin: 0 0 12px;
-  font-weight: 900;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  animation: slideDown 0.8s ease-out;
-}
-
-.hero-subtitle {
-  display: inline-block;
-  font-family: "Bebas Neue", cursive;
-  font-size: clamp(32px, 8vw, 80px);
-  line-height: 1.2;
-  background: linear-gradient(135deg, $download-gold-light 0%, $download-gold 55%, $download-gold-dark 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 20px;
-  padding: 8px 2px 10px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  text-shadow: none;
-  filter: drop-shadow(0 4px 12px rgba(245, 198, 37, 0.18));
-  animation: slideDown 0.8s ease-out 0.1s both;
-}
-
-.hero-description {
-  font-size: 14px;
-  color: #a0a0a0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-  animation: slideDown 0.8s ease-out 0.2s both;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =====================================================
-   CONTENEDOR PRINCIPAL DE DESCARGAS
-   ===================================================== */
-.download-main {
-  max-width: 1200px;
-  margin: 60px auto 80px;
-  padding: 0 20px;
-}
-
-/* =====================================================
-   DESCARGA DESTACADA (RECOMENDADA)
-   ===================================================== */
-.featured-download {
   position: relative;
-  margin-bottom: 80px;
-  animation: fadeInUp 0.8s ease-out 0.3s both;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(42, 24, 15, 0.06) 52%, rgba(36, 20, 13, 0.92) 72%, rgba(32, 18, 12, 0.98) 100%),
+    url("/assets/download/bg2.jpg") center top / cover no-repeat;
 }
 
-.featured-badge {
+.download-hero::before {
+  content: "";
   position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, $download-gold-light 0%, $download-gold 100%);
-  color: $download-ink;
-  padding: 6px 20px;
-  border-radius: 20px;
-  font-weight: 900;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  z-index: 10;
-  box-shadow: 0 4px 15px rgba(245, 198, 37, 0.34);
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.18), transparent 28%),
+    linear-gradient(90deg, rgba(37, 20, 13, 0.46), transparent 22%, transparent 74%, rgba(32, 18, 12, 0.38));
 }
 
-.featured-card {
-  display: block;
-  text-decoration: none;
-  background: linear-gradient(135deg, rgba(245, 198, 37, 0.16) 0%, rgba(151, 105, 0, 0.12) 100%);
-  border: 2px solid rgba(245, 198, 37, 0.34);
-  border-radius: 16px;
-  padding: 50px 40px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(245, 198, 37, 0.12);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(245, 198, 37, 0.16) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  &:hover {
-    border-color: rgba(245, 198, 37, 0.68);
-    background: linear-gradient(135deg, rgba(245, 198, 37, 0.24) 0%, rgba(151, 105, 0, 0.16) 100%);
-    box-shadow: 
-      0 12px 48px rgba(245, 198, 37, 0.22),
-      inset 0 0 20px rgba(245, 198, 37, 0.11);
-    transform: translateY(-5px);
-
-    &::before {
-      opacity: 1;
-    }
-
-    .featured-title {
-      color: $download-gold-light;
-    }
-  }
-}
-
-.featured-icon {
-  margin-bottom: 25px;
-
-  img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(245, 198, 37, 0.32));
-  }
-}
-
-.featured-title {
-  font-family: "Bebas Neue", cursive;
-  font-size: 42px;
-  color: #ffffff;
-  text-transform: uppercase;
-  margin: 20px 0;
-  letter-spacing: 2px;
-  transition: color 0.3s ease;
-}
-
-.featured-description {
-  font-size: 16px;
-  color: #c0c0c0;
-  margin: 20px 0 30px;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.featured-version {
-  font-size: 14px;
-  color: $download-gold;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =====================================================
-   SECCIÓN OTRAS OPCIONES
-   ===================================================== */
-.download-options-section {
-  margin-top: 80px;
-}
-
-.options-title {
-  font-family: "Bebas Neue", cursive;
-  font-size: 28px;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0 0 30px;
-  text-align: center;
-  opacity: 0.8;
-}
-
-.download-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.download-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  background: linear-gradient(135deg, rgba(245, 198, 37, 0.09) 0%, rgba(80, 62, 18, 0.16) 100%);
-  border: 2px solid rgba(245, 198, 37, 0.16);
-  border-radius: 12px;
-  padding: 25px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(245, 198, 37, 0.17) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  &:hover {
-    border-color: rgba(245, 198, 37, 0.56);
-    background: linear-gradient(135deg, rgba(245, 198, 37, 0.18) 0%, rgba(151, 105, 0, 0.14) 100%);
-    box-shadow: 0 8px 25px rgba(245, 198, 37, 0.16);
-    transform: translateY(-5px);
-
-    &::before {
-      opacity: 1;
-    }
-
-    .card-title {
-      color: $download-gold-light;
-    }
-
-    .card-link {
-      color: $download-gold-light;
-      transform: translateX(5px);
-    }
-  }
-}
-
-.card-header {
-  margin-bottom: 15px;
-}
-
-.card-size {
-  display: inline-block;
-  font-size: 11px;
-  color: $download-gold;
-  background: rgba(245, 198, 37, 0.12);
-  padding: 4px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.card-title {
-  font-family: "Bebas Neue", cursive;
-  font-size: 24px;
-  color: #ffffff;
-  text-transform: uppercase;
-  margin: 0;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-
-.card-description {
-  font-size: 14px;
-  color: #a0a0a0;
-  margin: 8px 0 15px;
-  flex-grow: 1;
-}
-
-.card-version {
-  font-size: 12px;
-  color: $download-gold;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
-}
-
-.card-link {
-  font-size: 14px;
-  color: $download-gold;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-}
-
-/* =====================================================
-   SECCIÓN CÓMO INSTALAR
-   ===================================================== */
-.installation-section {
-  margin-top: 100px;
-  padding: 60px 20px;
-  background: linear-gradient(180deg, rgba(245, 198, 37, 0.1) 0%, rgba(151, 105, 0, 0.06) 100%);
-  border-top: 1px solid rgba(245, 198, 37, 0.22);
-  border-bottom: 1px solid rgba(245, 198, 37, 0.22);
-}
-
-.installation-title {
-  font-family: "Bebas Neue", cursive;
-  font-size: clamp(32px, 6vw, 48px);
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-align: center;
-  margin: 0 0 50px;
-}
-
-.installation-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.step-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 30px 25px;
-  background: linear-gradient(135deg, rgba(245, 198, 37, 0.11) 0%, rgba(80, 62, 18, 0.12) 100%);
-  border: 2px solid rgba(245, 198, 37, 0.22);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  position: relative;
-
-  &:hover {
-    border-color: rgba(245, 198, 37, 0.56);
-    background: linear-gradient(135deg, rgba(245, 198, 37, 0.17) 0%, rgba(151, 105, 0, 0.13) 100%);
-    box-shadow: 0 8px 25px rgba(245, 198, 37, 0.16);
-    transform: translateY(-5px);
-
-    .step-number {
-      background: linear-gradient(135deg, $download-gold-light 0%, $download-gold 100%);
-      color: $download-ink;
-      box-shadow: 0 0 20px rgba(245, 198, 37, 0.46);
-    }
-  }
-}
-
-.step-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, $download-gold-light 0%, $download-gold 100%);
-  color: $download-ink;
-  font-weight: 900;
-  font-size: 24px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(245, 198, 37, 0.32);
-}
-
-.step-image {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px rgba(245, 198, 37, 0.24));
-}
-
-.step-title {
-  font-size: 18px;
-  color: #ffffff;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* =====================================================
-   SECCIÓN AYUDA
-   ===================================================== */
-.installation-help {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.help-text {
-  font-size: 16px;
-  color: #a0a0a0;
-  font-style: italic;
-  margin: 0;
-
-  a {
-    color: $download-gold;
-    font-weight: 700;
-    text-decoration: none;
-
-    &:hover {
-      color: $download-gold-light;
-      text-decoration: underline;
-    }
-  }
-}
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-@media (max-width: 768px) {
-  .full-body-download {
-    padding-bottom: 40px;
-  }
-
-  .download-hero {
-    padding-top: 60px;
-    padding-bottom: 40px;
-  }
-
-  .hero-title {
-    font-size: 48px;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-  }
-
-  .hero-subtitle {
-    font-size: 32px;
-    letter-spacing: 2px;
-    line-height: 1.22;
-    padding-top: 6px;
-    padding-bottom: 8px;
-  }
-
-  .download-main {
-    margin: 40px auto 60px;
-  }
-
-  .featured-card {
-    padding: 40px 25px;
-  }
-
-  .featured-title {
-    font-size: 32px;
-  }
-
-  .featured-description {
-    font-size: 14px;
-  }
-
-  .download-cards {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .installation-section {
-    padding: 40px 20px;
-  }
-
-  .installation-title {
-    font-size: 32px;
-    letter-spacing: 2px;
-  }
-
-  .installation-steps {
-    gap: 20px;
-  }
-
-  .step-image {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 36px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-
-  .hero-subtitle {
-    font-size: 24px;
-    letter-spacing: 1px;
-    line-height: 1.24;
-    padding-top: 5px;
-    padding-bottom: 7px;
-  }
-
-  .featured-badge {
-    font-size: 10px;
-    padding: 5px 15px;
-  }
-
-  .featured-card {
-    padding: 30px 20px;
-  }
-
-  .featured-title {
-    font-size: 24px;
-  }
-
-  .featured-icon img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .options-title {
-    font-size: 22px;
-  }
-
-  .card-title {
-    font-size: 18px;
-  }
-
-  .installation-title {
-    font-size: 24px;
-  }
-
-  .step-number {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-
-  .step-image {
-    width: 80px;
-    height: 80px;
-  }
-
-  .step-title {
-    font-size: 14px;
-  }
-}
-
-
-/* =====================================================
-   HOW TO
-   ===================================================== */
-.download-howto {
-  margin-top: 70px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.howto-title {
-  font-family: "Bebas Neue", cursive;
-  font-size: 36px;
-  color: $download-gold;
-  margin-bottom: 30px;
-}
-
-/* 🔥 Mantiene tu layout: flex + wrap (no rompe nada) */
-.howto-videos {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-/* wrapper de cada imagen para poder poner overlay */
-.howto-step {
-  position: relative;
-  width: 360px; /* mismo ancho que tenías */
-  border: 2px solid #000;
-  overflow: hidden;
-}
-
-/* evita que la imagen cambie tamaños raros */
-.howto-step img {
-  width: 100%;
-  height: 200px;      /* altura fija tipo banner (ajusta si quieres) */
-  display: block;
-  object-fit: cover;
-}
-
-/* franja negra sólida */
-.howto-overlay {
+.download-hero::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-
-  height: 30px;                 /* ajusta si quieres más alta */
-  background: rgba(0, 0, 0, 0.9);
-
-  display: flex;
-  align-items: center;          /* centra vertical */
-  justify-content: center;      /* centra horizontal */
+  bottom: 86px;
+  height: 220px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(34, 19, 12, 0.82) 44%, rgba(34, 19, 12, 0.96));
+  box-shadow: 0 -24px 58px rgba(41, 24, 14, 0.5);
 }
 
-/* texto centrado real */
-.howto-text {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0;
-
+.download-logo-block {
+  position: absolute;
+  left: clamp(120px, 16vw, 330px);
+  top: clamp(88px, 12vh, 135px);
+  z-index: 2;
+  width: min(520px, 34vw);
   text-align: center;
+}
+
+.download-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 28px;
+  filter: drop-shadow(0 15px 4px rgba(0, 0, 0, 0.3));
+}
+
+.download-logo-block h1 {
+  margin: 0;
+  color: #fff;
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-size: clamp(31px, 2.1vw, 42px);
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow:
+    0 3px 0 #30140d,
+    0 5px 8px rgba(0, 0, 0, 0.65);
+}
+
+.download-logo-block h1 span {
+  display: block;
+}
+
+.download-panel {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(112px, 14vh, 155px);
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  transform: translateX(-50%);
+}
+
+.download-main-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 420px;
+  min-height: 76px;
+  padding: 0 22px 0 18px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #2fba3c, #15972a);
+  border: 1px solid #0f6c1c;
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 4px 0 rgba(0, 0, 0, 0.18);
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-size: 35px;
+  line-height: 0.9;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.download-main-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.download-main-button small {
+  display: block;
+  margin-top: 7px;
+  color: #b8ff9c;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
   text-shadow: none;
 }
 
+.download-windows-icon {
+  display: grid;
+  grid-template-columns: repeat(2, 19px);
+  grid-template-rows: repeat(2, 19px);
+  gap: 3px;
+  margin-right: 14px;
+}
 
+.download-windows-icon::before,
+.download-windows-icon::after,
+.download-windows-icon {
+  background:
+    linear-gradient(#fff 0 0) left top / 19px 19px no-repeat,
+    linear-gradient(#fff 0 0) right top / 19px 19px no-repeat,
+    linear-gradient(#fff 0 0) left bottom / 19px 19px no-repeat,
+    linear-gradient(#fff 0 0) right bottom / 19px 19px no-repeat;
+}
 
-/* responsive: en pantallas pequeñas se apilan */
-@media (max-width: 900px) {
-  .howto-step {
+.download-platforms {
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+  margin-top: 18px;
+}
+
+.download-platform {
+  display: grid;
+  justify-items: center;
+  width: 58px;
+  color: #dfd078;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.05;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.platform-icon {
+  position: relative;
+  display: block;
+  width: 41px;
+  height: 41px;
+  margin-bottom: 7px;
+  color: #cfc16b;
+}
+
+.platform-windows {
+  background:
+    linear-gradient(currentColor 0 0) 0 0 / 18px 18px no-repeat,
+    linear-gradient(currentColor 0 0) 23px 0 / 18px 18px no-repeat,
+    linear-gradient(currentColor 0 0) 0 23px / 18px 18px no-repeat,
+    linear-gradient(currentColor 0 0) 23px 23px / 18px 18px no-repeat;
+}
+
+.platform-mac::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 9px;
+  width: 28px;
+  height: 27px;
+  border-radius: 48% 48% 44% 44%;
+  background: currentColor;
+}
+
+.platform-mac::after {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 0;
+  width: 11px;
+  height: 17px;
+  border-radius: 11px 0 11px 0;
+  background: currentColor;
+  transform: rotate(35deg);
+}
+
+.platform-linux::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 5px solid currentColor;
+  border-radius: 50%;
+}
+
+.platform-linux::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 13px;
+  height: 18px;
+  border-radius: 9px 9px 5px 5px;
+  background: currentColor;
+}
+
+@media (max-width: 1100px) {
+  .download-logo-block {
+    left: 7vw;
+    width: min(440px, 45vw);
+  }
+}
+
+@media (max-width: 760px) {
+  .download-hero {
+    min-height: 780px;
+    background-position: 58% top;
+  }
+
+  .download-logo-block {
+    left: 50%;
+    top: 92px;
+    width: min(420px, 82vw);
+    transform: translateX(-50%);
+  }
+
+  .download-logo-block h1 {
+    font-size: 29px;
+  }
+
+  .download-panel {
+    bottom: 74px;
+    width: calc(100% - 32px);
+  }
+
+  .download-main-button {
     width: 100%;
+    min-width: 0;
     max-width: 420px;
+    min-height: 70px;
+    font-size: 30px;
   }
-  .howto-step img {
-    height: 190px;
-  }
-  .howto-text {
-    font-size: 20px;
+
+  .download-platforms {
+    gap: 24px;
   }
 }

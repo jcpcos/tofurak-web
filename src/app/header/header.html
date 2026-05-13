@@ -1,276 +1,197 @@
-<div class="header-full-container-new-version modern-header">
-
-  <!-- BORDE ANIMADO -->
-  <div class="header-border-glow"></div>
-
-  <div class="header-full-container-new-version-left">
-    <div class="header-full-container-new-version-left-main">
-      <h3 class="logo-text">Tofurak</h3>
-    </div>
-
-    <div class="header-full-container-new-version-left-logo">
-      <a routerLink="/">
-        <img src="assets/logo.png" alt="">
-      </a>
-    </div>
-
-    <div class="header-full-container-new-version-left-menu ng-star-inserted">
-
-      <!-- Juego -->
-      <div class="header-full-container-new-version-left-menu-item modern-item">
-        <span>Juego</span>
-        <div class="header-full-container-new-version-left-menu-item-arrow"></div>
-
-        <div class="dropdown-menu modern-dropdown">
-          <div class="dropdown-menu-top"></div>
-          <div class="dropdown-menu-content">
-            <a routerLink="/" class="linka">
-              <div class="dropdown-menu-content-item">Descubrir</div>
-            </a>
-            <a routerLink="/ranking" class="linka">
-              <div class="dropdown-menu-content-item">Clasificaciones</div>
-            </a>
-            <a routerLink="/register" class="linka">
-              <div class="dropdown-menu-content-item">Registro</div>
-            </a>
-            <a routerLink="/download" class="linka">
-              <div class="dropdown-menu-content-item">Descarga el juego</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Actualidad -->
-      <div class="header-full-container-new-version-left-menu-item modern-item">
-        <span>Actualidad</span>
-        <div class="header-full-container-new-version-left-menu-item-arrow"></div>
-
-        <div class="dropdown-menu modern-dropdown">
-          <div class="dropdown-menu-top"></div>
-          <div class="dropdown-menu-content">
-            <a routerLink="/news" class="linka">
-              <div class="dropdown-menu-content-item">Todas las noticias</div>
-            </a>
-            <a routerLink="/guide" class="linka">
-              <div class="dropdown-menu-content-item">Guias</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Utilidades -->
-      <div class="header-full-container-new-version-left-menu-item modern-item">
-        <span>Utilidades</span>
-        <div class="header-full-container-new-version-left-menu-item-arrow"></div>
-
-        <div class="dropdown-menu modern-dropdown">
-          <div class="dropdown-menu-top"></div>
-          <div class="dropdown-menu-content">
-            <a href="https://retro.dofuscreator.com/" target="_blank" class="linka">
-              <div class="dropdown-menu-content-item">Diseña tu set</div>
-            </a>
-            <a href="https://solomonk.fr/es/" target="_blank" class="linka">
-              <div class="dropdown-menu-content-item">Enciclopedia Retro</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Redes -->
-      <div class="header-full-container-new-version-left-menu-item modern-item">
-        <span>Redes</span>
-        <div class="header-full-container-new-version-left-menu-item-arrow"></div>
-
-        <div class="dropdown-menu modern-dropdown">
-          <div class="dropdown-menu-top"></div>
-          <div class="dropdown-menu-content">
-            <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" class="linka">
-              <div class="dropdown-menu-content-item">Whatsapp</div>
-            </a>
-            <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" class="linka">
-              <div class="dropdown-menu-content-item">Canal de Youtube</div>
-            </a>
-            <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" class="linka">
-              <div class="dropdown-menu-content-item">TikTok</div>
-            </a>
-            <a href="https://www.facebook.com/Tofurak/" target="_blank" class="linka">
-              <div class="dropdown-menu-content-item">Facebook</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tienda -->
-      <div class="header-full-container-new-version-left-menu-item modern-item">
-        <a routerLink="/shop" class="menu-direct-link">
-          <span>Tienda</span>
-        </a>
-        <div class="header-full-container-new-version-left-menu-item-direct"></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="header-full-container-new-version-right">
-
-    <div *ngIf="totalCartItems > 0" class="header-full-container-new-version-right-item ng-star-inserted">
-      <a routerLink="/shop-cart" class="menu-direct-link cart-link">
-        <div class="icon-shopping"></div>
-        <span class="quantity-cart">{{ totalCartItems }}</span>
-      </a>
-    </div>
-
-    <a *ngIf="!isLoggedIn" routerLink="/login" class="header-full-container-new-version-right-item ng-star-inserted">
-      <div class="icon-login"></div>
+<header class="retro-header" [class.retro-header-hidden]="isScrolled">
+  <div class="retro-topbar">
+    <a routerLink="/" class="retro-brand" aria-label="Gratoxuia inicio">
+      <span class="retro-brand-mark"></span>
+      <span>GRATOXUIA</span>
     </a>
 
-    <!-- USER -->
-    <div *ngIf="isLoggedIn" class="header-full-container-new-version-left-menu-item header-user-menu modern-item">
-      <img src="assets/avatar/avatar.png" alt="Avatar" class="user-avatar-header">
-
-      <div class="dropdown-menu modern-dropdown">
-        <div class="dropdown-menu-top"></div>
-        <div class="dropdown-menu-content user-dropdown-content">
-          
-          <div class="user-profile-header">
-            <img src="assets/avatar/avatar.png" alt="Avatar" class="user-avatar-dropdown">
-            <div class="user-info">
-              <div class="user-name">{{ currentUser?.apodo }}#{{ currentUser?.id }}</div>
-              <div class="user-subscription">{{ getSubscriptionStatus() }}</div>
-            </div>
-          </div>
-
-          <div class="user-ogrinas-section">
-            <img src="assets/ogrina.svg" alt="Ogrinas" class="ogrinas-icon">
-            <div class="ogrinas-info">
-              <div class="ogrinas-amount">Ogrinas: {{ currentUser?.ogrinas }}</div>
-              <a routerLink="/shop" class="ogrinas-buy-link">Comprar Ogrinas</a>
-            </div>
-          </div>
-
-          <a routerLink="/profile" class="linka">
-            <div class="dropdown-menu-content-item">Gestión de cuenta</div>
-          </a>
-          <a *ngIf="hasAdminAccess()" routerLink="/admin" class="linka">
-            <div class="dropdown-menu-content-item">Panel admin</div>
-          </a>
-          <button (click)="logout()" class="linka logout-link">
-            <div class="dropdown-menu-content-item">Desconexión</div>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- BOTÓN JUGAR -->
-    <button 
-      routerLink="/download"
-      class="play-header-button modern-play ng-star-inserted">
-      Jugar
-    </button>
-
-    <!-- BURGER -->
-    <button
-      type="button"
-      class="burger-menu-button"
-      (click)="toggleMobileMenu()"
-      aria-label="Abrir menu"
-      [attr.aria-expanded]="isMobileMenuOpen"
-    >
-      <div class="burger-menu-button-icon"></div>
-    </button>
-
-  </div>
-</div>
-
-<!-- BACKDROP -->
-<div class="mobile-menu-backdrop" [class.open]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
-
-<!-- MOBILE MENU -->
-<div class="full-header-menu-mobile" [class.open]="isMobileMenuOpen">
-  <div class="full-header-menu-mobile-header">
-    <button type="button" class="full-header-menu-mobile-header-close" (click)="closeMobileMenu()" aria-label="Cerrar menu"></button>
-
-    <div class="full-header-menu-mobile-header-logo">
-      <a routerLink="/" (click)="closeMobileMenu()">
-        <img src="assets/logo.png" alt="">
+    <div class="retro-account">
+      <a *ngIf="totalCartItems > 0" routerLink="/shop-cart" class="retro-cart" aria-label="Carrito">
+        <span class="retro-cart-icon"></span>
+        <span class="retro-cart-count">{{ totalCartItems }}</span>
       </a>
+
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="retro-login">
+        <span>Conexion</span>
+        <span class="retro-login-icon"></span>
+      </a>
+
+      <div *ngIf="isLoggedIn" class="retro-user">
+        <button type="button" class="retro-user-trigger">
+          <img src="assets/avatar/avatar.png" alt="Avatar" />
+          <span>{{ currentUser?.apodo || 'Cuenta' }}</span>
+        </button>
+
+        <div class="retro-user-menu">
+          <div class="retro-user-card">
+            <img src="assets/avatar/avatar.png" alt="Avatar" />
+            <div>
+              <strong>{{ currentUser?.apodo }}#{{ currentUser?.id }}</strong>
+              <span>{{ getSubscriptionStatus() }}</span>
+            </div>
+          </div>
+
+          <div class="retro-ogrinas">
+            <img src="assets/ogrina.svg" alt="" />
+            <span>Ogrinas: {{ currentUser?.ogrinas || 0 }}</span>
+          </div>
+
+          <a routerLink="/profile">Gestion de cuenta</a>
+          <a *ngIf="hasAdminAccess()" routerLink="/admin">Panel admin</a>
+          <button type="button" (click)="logout()">Desconexion</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="full-header-menu-mobile-body">
+  <nav class="retro-nav" aria-label="Navegacion principal">
+    <div class="retro-nav-inner">
+      <div class="retro-nav-group retro-nav-group-left">
+        <div class="retro-nav-item">
+          <a routerLink="/">Juego</a>
+          <span></span>
+          <div class="retro-dropdown">
+            <a routerLink="/">Descubrir</a>
+            <a routerLink="/register">Registro</a>
+            <a routerLink="/download">Descarga el juego</a>
+          </div>
+        </div>
 
-    <!-- (MOBILE LO DEJAMOS IGUAL para no romper lógica, solo hereda estilos luego) -->
+        <div class="retro-nav-item">
+          <a routerLink="/evento">Transmedia</a>
+          <span></span>
+          <div class="retro-dropdown">
+            <a routerLink="/evento">Eventos</a>
+            <a href="https://www.youtube.com/@RetroForceGames" target="_blank">Videos</a>
+            <a href="https://www.facebook.com/Gratoxuia/" target="_blank">Comunidad</a>
+          </div>
+        </div>
 
-    <div class="fatheritemMobile">
-      <button type="button" class="full-header-menu-mobile-body-list-item" (click)="toggleMobileSection('juego')">
-        <span>Juego</span>
-        <span>{{ isMobileSectionOpen('juego') ? '-' : '+' }}</span>
+        <div class="retro-nav-item">
+          <a routerLink="/guide">Guias</a>
+          <span></span>
+          <div class="retro-dropdown">
+            <a routerLink="/guide">Todas las guias</a>
+            <a href="https://retro.dofuscreator.com/" target="_blank">Disena tu set</a>
+            <a href="https://solomonk.fr/es/" target="_blank">Enciclopedia Retro</a>
+          </div>
+        </div>
+      </div>
+
+      <a routerLink="/" class="retro-logo" aria-label="Gratoxuia Retro">
+        <img src="assets/logo.png" alt="Gratoxuia Retro" />
+      </a>
+
+      <div class="retro-nav-group retro-nav-group-right">
+        <a routerLink="/news" class="retro-nav-link">Noticias</a>
+        <a routerLink="/ranking" class="retro-nav-link">Rankings</a>
+        <a routerLink="/shop" class="retro-nav-link">Tienda</a>
+      </div>
+
+      <button
+        type="button"
+        class="retro-menu-button"
+        (click)="toggleMobileMenu()"
+        aria-label="Abrir menu"
+        [attr.aria-expanded]="isMobileMenuOpen"
+      >
+        <span></span>
       </button>
-      <div class="dropdown-menu" [class.active]="isMobileSectionOpen('juego')">
-        <div class="dropdown-menu-content">
-          <a routerLink="/" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Descubrir</div></a>
-          <a routerLink="/ranking" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Clasificaciones</div></a>
-          <a routerLink="/register" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Registro</div></a>
-          <a routerLink="/download" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Descarga el juego</div></a>
+    </div>
+  </nav>
+</header>
+
+<header class="retro-scroll-header" [class.retro-scroll-header-open]="isScrolled">
+  <nav class="retro-scroll-nav" aria-label="Navegacion compacta">
+    <div class="retro-scroll-group">
+      <div class="retro-scroll-item">
+        <a routerLink="/">Juego</a>
+        <span></span>
+        <div class="retro-scroll-dropdown">
+          <a routerLink="/">Descubrir</a>
+          <a routerLink="/register">Registro</a>
+          <a routerLink="/download">Descarga el juego</a>
+        </div>
+      </div>
+
+      <div class="retro-scroll-item">
+        <a routerLink="/evento">Transmedia</a>
+        <span></span>
+        <div class="retro-scroll-dropdown">
+          <a routerLink="/evento">Eventos</a>
+          <a href="https://www.youtube.com/@RetroForceGames" target="_blank">Videos</a>
+          <a href="https://www.facebook.com/Gratoxuia/" target="_blank">Comunidad</a>
+        </div>
+      </div>
+
+      <div class="retro-scroll-item">
+        <a routerLink="/guide">Guias</a>
+        <span></span>
+        <div class="retro-scroll-dropdown">
+          <a routerLink="/guide">Todas las guias</a>
+          <a href="https://retro.dofuscreator.com/" target="_blank">Disena tu set</a>
+          <a href="https://solomonk.fr/es/" target="_blank">Enciclopedia Retro</a>
         </div>
       </div>
     </div>
 
-    <div class="fatheritemMobile">
-      <button type="button" class="full-header-menu-mobile-body-list-item" (click)="toggleMobileSection('actualidad')">
-        <span>Actualidad</span>
-        <span>{{ isMobileSectionOpen('actualidad') ? '-' : '+' }}</span>
-      </button>
-      <div class="dropdown-menu" [class.active]="isMobileSectionOpen('actualidad')">
-        <div class="dropdown-menu-content">
-          <a routerLink="/news" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Todas las noticias</div></a>
-          <a routerLink="/guide" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Guias</div></a>
-        </div>
-      </div>
+    <a routerLink="/" class="retro-scroll-logo" aria-label="Gratoxuia inicio">
+      <img src="assets/download/d_logo.png" alt="Gratoxuia" />
+    </a>
+
+    <div class="retro-scroll-group">
+      <a routerLink="/news" class="retro-scroll-link">Noticias</a>
+      <a routerLink="/ranking" class="retro-scroll-link">Rankings</a>
+      <a routerLink="/shop" class="retro-scroll-link">Tienda</a>
     </div>
+  </nav>
+</header>
 
-    <div class="fatheritemMobile">
-      <button type="button" class="full-header-menu-mobile-body-list-item" (click)="toggleMobileSection('utilidades')">
-        <span>Utilidades</span>
-        <span>{{ isMobileSectionOpen('utilidades') ? '-' : '+' }}</span>
-      </button>
-      <div class="dropdown-menu" [class.active]="isMobileSectionOpen('utilidades')">
-        <div class="dropdown-menu-content">
-          <a href="https://retro.dofuscreator.com/" target="_blank" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Diseña tu set</div></a>
-          <a href="https://solomonk.fr/es/" target="_blank" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Enciclopedia Retro</div></a>
-        </div>
-      </div>
-    </div>
+<div class="retro-mobile-backdrop" [class.open]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
 
-    <div class="fatheritemMobile">
-      <button type="button" class="full-header-menu-mobile-body-list-item" (click)="toggleMobileSection('redes')">
-        <span>Redes</span>
-        <span>{{ isMobileSectionOpen('redes') ? '-' : '+' }}</span>
-      </button>
-      <div class="dropdown-menu" [class.active]="isMobileSectionOpen('redes')">
-        <div class="dropdown-menu-content">
-          <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Whatsapp</div></a>
-          <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Canal de Youtube</div></a>
-          <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">TikTok</div></a>
-          <a href="https://www.facebook.com/Tofurak/" target="_blank" (click)="closeMobileMenu()"><div class="dropdown-menu-content-item">Facebook</div></a>
-        </div>
-      </div>
-    </div>
+<aside class="retro-mobile-menu" [class.open]="isMobileMenuOpen">
+  <div class="retro-mobile-head">
+    <a routerLink="/" (click)="closeMobileMenu()">
+      <img src="assets/logo.png" alt="Gratoxuia Retro" />
+    </a>
+    <button type="button" (click)="closeMobileMenu()" aria-label="Cerrar menu"></button>
+  </div>
 
-    <a routerLink="/evento" class="full-header-menu-mobile-body-list-item" (click)="closeMobileMenu()">Evento</a>
-    <a routerLink="/shop" class="full-header-menu-mobile-body-list-item" (click)="closeMobileMenu()">Tienda</a>
-
-    <a *ngIf="!isLoggedIn" routerLink="/login" class="full-header-menu-mobile-body-list-item" (click)="closeMobileMenu()">Iniciar sesion</a>
-    <a *ngIf="isLoggedIn" routerLink="/profile" class="full-header-menu-mobile-body-list-item" (click)="closeMobileMenu()">Mi perfil</a>
-    <button *ngIf="isLoggedIn" type="button" class="full-header-menu-mobile-body-list-item" (click)="logout(); closeMobileMenu()">Cerrar sesion</button>
-
-    <button
-      routerLink="/download"
-      (click)="closeMobileMenu()"
-      class="play-header-button"
-    >
-      Jugar
+  <div class="retro-mobile-body">
+    <button type="button" class="retro-mobile-section" (click)="toggleMobileSection('juego')">
+      <span>Juego</span>
+      <b>{{ isMobileSectionOpen('juego') ? '-' : '+' }}</b>
     </button>
+    <div class="retro-mobile-submenu" [class.open]="isMobileSectionOpen('juego')">
+      <a routerLink="/" (click)="closeMobileMenu()">Descubrir</a>
+      <a routerLink="/register" (click)="closeMobileMenu()">Registro</a>
+      <a routerLink="/download" (click)="closeMobileMenu()">Descarga el juego</a>
+    </div>
 
+    <button type="button" class="retro-mobile-section" (click)="toggleMobileSection('actualidad')">
+      <span>Actualidad</span>
+      <b>{{ isMobileSectionOpen('actualidad') ? '-' : '+' }}</b>
+    </button>
+    <div class="retro-mobile-submenu" [class.open]="isMobileSectionOpen('actualidad')">
+      <a routerLink="/news" (click)="closeMobileMenu()">Noticias</a>
+      <a routerLink="/guide" (click)="closeMobileMenu()">Guias</a>
+      <a routerLink="/ranking" (click)="closeMobileMenu()">Rankings</a>
+    </div>
+
+    <button type="button" class="retro-mobile-section" (click)="toggleMobileSection('utilidades')">
+      <span>Utilidades</span>
+      <b>{{ isMobileSectionOpen('utilidades') ? '-' : '+' }}</b>
+    </button>
+    <div class="retro-mobile-submenu" [class.open]="isMobileSectionOpen('utilidades')">
+      <a href="https://retro.dofuscreator.com/" target="_blank" (click)="closeMobileMenu()">Disena tu set</a>
+      <a href="https://solomonk.fr/es/" target="_blank" (click)="closeMobileMenu()">Enciclopedia Retro</a>
+      <a href="https://www.facebook.com/Gratoxuia/" target="_blank" (click)="closeMobileMenu()">Facebook</a>
+    </div>
+
+    <a routerLink="/shop" class="retro-mobile-link" (click)="closeMobileMenu()">Tienda</a>
+    <a *ngIf="!isLoggedIn" routerLink="/login" class="retro-mobile-link" (click)="closeMobileMenu()">Conexion</a>
+    <a *ngIf="isLoggedIn" routerLink="/profile" class="retro-mobile-link" (click)="closeMobileMenu()">Mi perfil</a>
+    <button *ngIf="isLoggedIn" type="button" class="retro-mobile-link" (click)="logout(); closeMobileMenu()">Desconexion</button>
+    <a routerLink="/download" class="retro-mobile-play" (click)="closeMobileMenu()">Jugar gratis</a>
   </div>
-</div>
+</aside>

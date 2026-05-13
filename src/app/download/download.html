@@ -1,115 +1,45 @@
 <app-header></app-header>
 
-<div class="full-body-download">
-  <!-- SECCIÓN HERO CON TÍTULO -->
-  <div class="download-hero">
-    <div class="hero-content">
-      <h1 class="hero-title">DESCARGA</h1>
-      <h2 class="hero-subtitle">{{ serverName.toUpperCase() }}</h2>
-      <p class="hero-description">DISPONIBLE PARA WINDOWS Y MACOS</p>
+<main class="download-page">
+  <section class="download-hero">
+    <div class="download-logo-block">
+      <img src="/assets/logo.png" alt="Gratoxuia Retro" class="download-logo" />
+      <h1>
+        El MMORPG intemporal
+        <span>se puede jugar gratuitamente</span>
+      </h1>
     </div>
-  </div>
 
-  <!-- SECCIÓN PRINCIPAL DE DESCARGAS -->
-  <div class="download-main">
-    <!-- CARD RECOMENDADA DESTACADA -->
-    <div class="featured-download">
-      <div class="featured-badge">RECOMENDADO</div>
+    <div class="download-panel">
       <a
-        class="featured-card"
-        href="/TofurakLauncher.exe"
+        class="download-main-button"
+        href="/GratoxuiaLauncher.exe"
         target="_blank"
-        rel="noopener noreferrer">
-        <div class="featured-icon">
-          <img src="/assets/download/d_logo.png" alt="Launcher Logo" />
-        </div>
-        <h3 class="featured-title">Descargar Launcher</h3>
-        <p class="featured-description">
-          Instalación guiada, actualizaciones automáticas y gestión de cuentas en un solo clic. La
-          forma más sencilla de jugar.
-        </p>
-        <div class="featured-version">v {{ version }}</div>
+        rel="noopener noreferrer"
+      >
+        <span class="download-windows-icon" aria-hidden="true"></span>
+        <span>
+          Descargar el juego
+          <small>Desde Ankama Launcher</small>
+        </span>
       </a>
-    </div>
 
-    <!-- OTRAS OPCIONES DE DESCARGA -->
-    <div class="download-options-section">
-      <h3 class="options-title">OTRAS VERSIONES</h3>
-      <div class="download-cards">
-        <!-- CLIENTE PORTABLE -->
-        <a class="download-card" href="" target="_blank" rel="noopener noreferrer">
-          <div class="card-header">
-            <span class="card-size">32 / 64 BITS</span>
-          </div>
-          <h4 class="card-title">Cliente Portátil</h4>
-          <p class="card-description">Cliente para Windows sin launcher.</p>
-          <div class="card-version">v {{ version }}</div>
-          <div class="card-link">Descargar →</div>
+      <div class="download-platforms" aria-label="Otras plataformas">
+        <a class="download-platform" href="" target="_blank" rel="noopener noreferrer">
+          <span class="platform-icon platform-windows"></span>
+          <span>Windows<br />32 bits</span>
         </a>
-
-        <!-- CLIENTE BÁSICO -->
-        <a class="download-card" href="" target="_blank" rel="noopener noreferrer">
-          <div class="card-header">
-            <span class="card-size">32 BITS</span>
-          </div>
-          <h4 class="card-title">Cliente Básico</h4>
-          <p class="card-description">Versión ligera para equipos de bajos recursos.</p>
-          <div class="card-version">v {{ version }}</div>
-          <div class="card-link">Descargar →</div>
+        <a class="download-platform" href="" target="_blank" rel="noopener noreferrer">
+          <span class="platform-icon platform-mac"></span>
+          <span>Mac<br />OS</span>
         </a>
-
-        <!-- CLIENTE MACOS -->
-        <a class="download-card" href="" target="_blank" rel="noopener noreferrer">
-          <div class="card-header">
-            <span class="card-size">MACOS</span>
-          </div>
-          <h4 class="card-title">Cliente macOS</h4>
-          <p class="card-description">Versión remasterizada para Mac.</p>
-          <div class="card-version">v {{ version }}</div>
-          <div class="card-link">Descargar →</div>
+        <a class="download-platform" href="" target="_blank" rel="noopener noreferrer">
+          <span class="platform-icon platform-linux"></span>
+          <span>Linux</span>
         </a>
       </div>
     </div>
-  </div>
-
-
-
-  <div class="download-howto">
-    <div class="howto-title">¿Cómo instalar el juego?</div>
-
-    <div class="howto-videos">
-      <div class="howto-step">
-        <img src="/assets/download/how-to-install1.jpg" alt="Paso 1" />
-        <div class="howto-overlay">
-          <span class="howto-text">1. Descargar el TofurakLauncher</span>
-        </div>
-      </div>
-
-      <div class="howto-step">
-        <img src="/assets/download/how-to-install2.jpg" alt="Paso 2" />
-        <div class="howto-overlay">
-          <span class="howto-text">2. Instala Tofurak</span>
-        </div>
-      </div>
-
-      <div class="howto-step">
-        <img src="/assets/download/how-to-install3.jpg" alt="Paso 3" />
-        <div class="howto-overlay">
-          <span class="howto-text">3. Crea tu personaje</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROBLEMAS CON LA INSTALACIÓN -->
-  <div class="installation-help">
-    <p class="help-text">
-      ¿Problemas con la instalación?
-      <a href="https://chat.whatsapp.com/FMqZuqasafL8kVlA0E5Non" target="_blank" rel="noopener noreferrer">
-        Escríbenos por WhatsApp
-      </a>
-    </p>
-  </div>
-</div>
+  </section>
+</main>
 
 <app-footer></app-footer>

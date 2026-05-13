@@ -3,10 +3,11 @@
   <div class="ranking-shell">
     <section class="ranking-card">
       <header class="rank-title">
-        <img class="rank-badge" src="/assets/ladder/koliseo.png" alt="Koliseo" />
+        <div class="rank-badge-box">
+          <img class="rank-badge" src="/assets/ladder/koliseo.png" alt="Koliseo" />
+        </div>
         <div>
-          <h1>Ranking</h1>
-          <p>Ranking PvM, PvP, Koliseo y Gremios en tiempo real</p>
+          <h1>Gratouxia Ladder</h1>
         </div>
       </header>
 
@@ -40,6 +41,8 @@
           GREMIOS
         </button>
       </div>
+
+      <div class="rank-banner" [ngClass]="'rank-banner-' + activeTab"></div>
 
       <div class="rank-states" *ngIf="isLoading || errorMessage">
         <p *ngIf="isLoading">Cargando ranking...</p>

@@ -3,3 +3,11 @@
   <router-outlet #o="outlet"></router-outlet>
 
 </main>
+
+<button
+  type="button"
+  class="back-to-top"
+  [class.back-to-top-visible]="showBackToTop"
+  (click)="scrollToTop()"
+  aria-label="Volver arriba"
+></button>

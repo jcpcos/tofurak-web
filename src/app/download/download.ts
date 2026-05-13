@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 
@@ -17,6 +16,6 @@ import { Footer } from '../footer/footer';
 })
 export class DownloadComponent {
 
-  serverName = 'Tofurak';
+  serverName = 'Gratoxuia';
   version = '1.82 - Gratis';
 }

@@ -77,8 +77,8 @@
 			"port": 7070,
 			"host": "0.0.0.0",
 			"allowedHosts": [
-			  "web.tofurak.com",
-			  "tofurak.com",
+			  "web.gratoxuia.com",
+			  "gratoxuia.com",
 			  "localhost"
 			]
 		  }

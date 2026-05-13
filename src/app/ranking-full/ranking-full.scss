@@ -1,262 +1,173 @@
-$rank-gold: #f5c625;
-$rank-gold-light: #ffd95a;
-$rank-gold-dark: #c89300;
-$rank-ink: #16110a;
-$rank-panel: rgba(24, 18, 9, 0.9);
+$ladder-green: #96ad00;
+$ladder-green-dark: #758900;
+$ladder-beige: #c9c3a7;
+$ladder-panel: rgba(73, 81, 75, 0.92);
 
 .full-body {
   position: relative;
   min-height: 100vh;
-  padding-top: 110px;
-  padding-bottom: 40px;
-
+  padding-top: 320px;
+  padding-bottom: 72px;
   background:
-    linear-gradient(
-      to bottom,
-      rgba(15, 12, 6, 0.15) 0%,
-      rgba(15, 12, 6, 0.76) 68%,
-      rgba(15, 12, 6, 1) 100%
-    ),
-    url("/assets/home-backgrounds/bg-moon.jpg");
-
-  background-repeat: no-repeat;
-  background-position: center top;
-
-  background-size: 200vw 200vh;
-  background-color: #0f0c06;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0, rgba(0, 0, 0, 0.16) 45%, rgba(0, 8, 4, 0.92) 92%),
+    url("/assets/home-backgrounds/bg-moon.jpg") center top / cover no-repeat;
+  background-color: #020804;
 }
 
-
-.full-body::after {
+.full-body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 12, 6, 0) 55%,
-    rgba(15, 12, 6, 0.85) 86%,
-    rgba(15, 12, 6, 1) 100%
-  );
   pointer-events: none;
-}
-
-/* tu contenido por encima */
-.ranking-shell { position: relative; z-index: 1; }
-
-.bg-fade {
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 220px;
-  z-index: 0;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 12, 6, 0) 0%,
-    rgba(15, 12, 6, 0.6) 50%,
-    rgba(15, 12, 6, 1) 100%
-  );
+  background:
+    radial-gradient(circle at 50% 26%, rgba(255, 245, 115, 0.2), transparent 22%),
+    linear-gradient(180deg, transparent 0 52%, rgba(0, 10, 4, 0.92) 88%, #000803 100%);
 }
 
 .ranking-shell {
   position: relative;
   z-index: 1;
-  width: min(1120px, calc(100% - 24px));
+  width: min(1128px, calc(100% - 32px));
   margin: 0 auto;
 }
 
-.rank-tabs button.active {
-  color: $rank-ink;
-  background: linear-gradient(
-    to bottom,
-    $rank-gold-light,
-    $rank-gold
-  );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    0 0 16px rgba(245, 198, 37, 0.35);
-
-  border-bottom: 2px solid $rank-gold-dark;
-}
 .ranking-card {
-  background: linear-gradient(135deg, rgba(245, 198, 37, 0.12), rgba(24, 18, 9, 0.88));
-  border: 1px solid rgba(245, 198, 37, 0.26);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.36);
-  padding: 14px;
-  border-radius: 8px;
+  padding: 0 0 48px;
+  background: $ladder-panel;
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.42);
 }
 
 .rank-title {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
   min-height: 66px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: linear-gradient(135deg, $rank-gold-light 0%, $rank-gold 52%, $rank-gold-dark 100%);
-  border: 1px solid rgba(255, 217, 90, 0.55);
-  border-bottom-color: rgba(200, 147, 0, 0.85);
-  border-radius: 6px;
-  padding: 12px 16px;
-  color: #fff;
-  text-shadow: none;
+  background: $ladder-green;
+}
+
+.rank-badge-box {
+  display: grid;
+  place-items: center;
+  background: #eef0e7;
 }
 
 .rank-badge {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
 }
 
 .rank-title h1 {
   margin: 0;
-  font-size: 34px;
-  line-height: 34px;
+  padding: 16px 18px;
+  color: #fff;
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1;
   text-transform: uppercase;
-  color: $rank-ink;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
 }
 
-.rank-title p {
-  margin: 4px 0 0;
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  color: rgba(22, 17, 10, 0.78);
-  font-weight: 700;
-  text-shadow: none;
-}
-
-/* =========================
-   TABS
-   ========================= */
 .rank-tabs {
-  position: relative;
-  display: flex;
-  gap: 0;
-  padding: 0;
-  border: 1px solid rgba(245, 198, 37, 0.34);
-  background: rgba(22, 17, 10, 0.9);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: #f4f4f4;
+  border-bottom: 4px solid $ladder-green;
 }
 
 .rank-tabs button {
-  flex: 1 1 25%;
+  min-height: 46px;
+  color: #4a3b20;
+  background: #f4f4f4;
   border: 0;
-  background: transparent;
-  color: #f7efd3;
-  font-family: Roboto, sans-serif;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.8px;
+  font: 500 15px "Roboto", Arial, sans-serif;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 12px 10px;
   cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.rank-tabs button:hover {
-  background: rgba(245, 198, 37, 0.12);
-  color: #ffffff;
 }
 
 .rank-tabs button.active {
-  color: $rank-ink;
+  color: $ladder-green-dark;
+  background: #dedede;
 }
 
-.rank-tabs-indicator {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 25%;
-  height: 3px;
-  background: $rank-gold;
-  transition: transform 260ms ease;
+.rank-tabs button:hover {
+  color: $ladder-green-dark;
+  background: #e8e8e8;
 }
 
-/* =========================
-   SLIDER
-   ========================= */
-.rank-table-wrap {
-  overflow: auto;
+.rank-banner {
+  min-height: 262px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.rank-slider {
-  overflow: hidden;
-  border-radius: 6px;
+.rank-banner-pvm {
+  background-image: url("/assets/ladder/ladder-pvm.jpg");
 }
 
-.rank-panels {
-  display: flex;
-  width: 300%;
-  will-change: transform;
-  transition: transform 320ms ease;
+.rank-banner-pvp {
+  background-image: url("/assets/ladder/ladder-pvp.jpg");
 }
 
-.rank-panel {
-  flex: 0 0 100%;
-  width: 100%;
+.rank-banner-koliseo {
+  background-image: url("/assets/ladder/ladder-koliseo.jpg");
 }
 
-/* =========================
-   ESTADOS
-   ========================= */
+.rank-banner-gremios {
+  background-image: url("/assets/ladder/ladder-gremios.jpg");
+}
+
 .rank-states {
-  background: $rank-panel;
-  border: 1px solid rgba(245, 198, 37, 0.24);
+  margin: 0;
+  padding: 22px 30px;
   color: #fff;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  font-family: Roboto, sans-serif;
+  background: #4f5751;
+  font: 500 15px "Roboto", Arial, sans-serif;
 }
 
 .rank-states .error {
-  color: #ff8c8c;
+  color: #ffd1d1;
 }
 
-/* =========================
-   TABLA
-   ========================= */
+.rank-table-wrap {
+  overflow-x: auto;
+  background: #4f5751;
+}
+
 .rank-table {
   width: 100%;
   min-width: 760px;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-family: Roboto, sans-serif;
+  border-collapse: collapse;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .rank-table thead th {
-  background: linear-gradient(180deg, $rank-gold-light, $rank-gold);
-  color: $rank-ink;
-  text-align: left;
-  font-size: 13px;
-  font-weight: 800;
   padding: 12px 10px;
-  text-transform: uppercase;
+  color: #16110a;
+  background: $ladder-beige;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
 }
 
 .rank-table tbody td {
-  background: #fff8dc;
-  color: #362712;
-  padding: 10px;
-  border-bottom: 1px solid rgba(200, 147, 0, 0.25);
+  padding: 12px 10px;
+  color: #2b2418;
+  background: #f0ead1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   font-size: 14px;
 }
 
 .rank-table tbody tr:nth-child(even) td {
-  background: #f4eccb;
+  background: #e5ddc0;
 }
 
 .rank-table tbody tr.top-row td {
-  background: linear-gradient(180deg, #3a2b14, #241a0c);
   color: #fff;
-  border-bottom-color: rgba(245, 198, 37, 0.42);
-  font-weight: 800;
+  background: #3d423e;
+  font-weight: 900;
 }
 
 .name-cell {
@@ -268,50 +179,44 @@ $rank-panel: rgba(24, 18, 9, 0.9);
 .name-cell img {
   width: 32px;
   height: 32px;
-  border-radius: 6px;
-  object-fit: cover;
-  background: rgba(22, 17, 10, 0.12);
-  box-shadow: 0 0 0 1px rgba(245, 198, 37, 0.24);
+  object-fit: contain;
 }
 
 .empty-state {
-  background: #fff8dc;
-  color: #4a3929;
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  padding: 14px;
-  border: 1px solid rgba(200, 147, 0, 0.34);
-  border-radius: 4px;
+  padding: 24px 30px;
+  color: #fff;
+  background: #4f5751;
+  font: 500 15px "Roboto", Arial, sans-serif;
 }
 
 @media (max-width: 768px) {
-  .ranking-shell {
-    width: min(100% - 16px, 1120px);
+  .full-body {
+    padding-top: 220px;
   }
 
-  .ranking-card {
-    padding: 10px;
+  .ranking-shell {
+    width: calc(100% - 16px);
   }
 
   .rank-title {
-    align-items: flex-start;
+    grid-template-columns: 58px minmax(0, 1fr);
   }
 
   .rank-title h1 {
     font-size: 28px;
-    line-height: 28px;
+    padding: 18px 14px;
   }
 
   .rank-badge {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
   }
 
   .rank-tabs {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .rank-tabs button {
-    flex-basis: 50%;
+  .rank-banner {
+    min-height: 180px;
   }
 }

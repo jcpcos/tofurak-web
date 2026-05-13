@@ -21,6 +21,7 @@ export class Header implements OnInit, OnDestroy {
   currentUser: User | null = null;
   totalCartItems = 0;
   isMobileMenuOpen = false;
+  isScrolled = false;
   mobileSections: Record<string, boolean> = {
     juego: false,
     actualidad: false,
@@ -36,6 +37,7 @@ export class Header implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.checkLoggedIn();
+    this.updateScrollState();
     
     // Suscribirse a los cambios de autenticación
     this.hart.authStatus$
@@ -127,6 +129,11 @@ export class Header implements OnInit, OnDestroy {
     }
   }
 
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.updateScrollState();
+  }
+
   private resetMobileSections(): void {
     this.mobileSections = {
       juego: false,
@@ -134,5 +141,9 @@ export class Header implements OnInit, OnDestroy {
       utilidades: false,
       redes: false,
     };
+  }
+
+  private updateScrollState(): void {
+    this.isScrolled = window.scrollY > 80;
   }
 }
