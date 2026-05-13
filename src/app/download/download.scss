@@ -157,6 +157,11 @@
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
 }
 
+.download-platform--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .platform-icon {
   position: relative;
   display: block;
