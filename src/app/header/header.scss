@@ -56,14 +56,11 @@
 }
 
 .retro-brand-mark {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 58% 38%, #d6ff4f 0 13%, transparent 15%),
-    radial-gradient(circle at 42% 62%, #222 0 12%, transparent 13%),
-    linear-gradient(135deg, #b6ef00, #5f9e00);
-  box-shadow: 0 0 10px rgba(171, 222, 0, 0.46);
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  background: url('/favicon.ico') center / contain no-repeat;
+  filter: drop-shadow(0 0 6px rgba(171, 222, 0, 0.46));
 }
 
 .retro-account {
