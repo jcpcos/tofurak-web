@@ -9,13 +9,8 @@ import { CommonModule } from '@angular/common';
 })
 export class StaticNavbar {
   isOpen: boolean = false;
-  modalConfig: string = '{"target": "#modalVideo"}';
 
   reduceVideo() {
     this.isOpen = !this.isOpen;
-  }
-
-  openModal() {
-    // Your logic to open the modal
   }
 }
