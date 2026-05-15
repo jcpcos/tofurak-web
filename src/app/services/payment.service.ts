@@ -144,7 +144,7 @@ export class PaymentService {
 
   getOrderHistory(): Observable<OrderHistoryItem[]> {
     return this.http
-      .get<ApiEnvelope<any> | any>(`/api/pagos/historial`, { withCredentials: true })
+      .get<ApiEnvelope<any> | any>(`/api/pagos/historial`)
       .pipe(map(response => this.normalizeOrderHistory(response?.data ?? response)));
   }
 

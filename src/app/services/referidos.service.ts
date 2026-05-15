@@ -79,9 +79,7 @@ export class ReferidosService {
 
   getDashboard(): Observable<ReferralDashboard> {
     return this.http
-      .get<ApiEnvelope<ReferralDashboard> | ReferralDashboard>(this.endpoint, {
-        withCredentials: true,
-      })
+      .get<ApiEnvelope<ReferralDashboard> | ReferralDashboard>(this.endpoint)
       .pipe(map(response => (response as ApiEnvelope<ReferralDashboard>)?.data ?? (response as ReferralDashboard)));
   }
 }

@@ -310,7 +310,6 @@ export class AdminService {
     return this.http
       .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/compras', {
         params,
-        withCredentials: true,
       })
       .pipe(
         map(response => this.normalizePurchasesResponse(response?.data ?? response)),
@@ -320,9 +319,7 @@ export class AdminService {
 
   getAffiliateLiquidations(): Observable<AdminAffiliateLiquidationsResponse> {
     return this.http
-      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/liquidaciones', {
-        withCredentials: true,
-      })
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/liquidaciones')
       .pipe(
         map(response => this.normalizeAffiliateLiquidationsResponse(response?.data ?? response)),
         tap(response => this.wompiDisponibleSubject.next(response.wompiDisponible)),
@@ -338,7 +335,6 @@ export class AdminService {
     return this.http.post<ApiEnvelope<any> | any>(
       'https://api.gratouxia.com/admin/liquidaciones/pagar',
       payload,
-      { withCredentials: true },
     ).pipe(
       map(response => ({
         message: response?.message ?? response?.data?.message,
@@ -358,7 +354,6 @@ export class AdminService {
     return this.http
       .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/ventas/diarias', {
         params,
-        withCredentials: true,
       })
       .pipe(
         map(response => this.normalizeDailySalesResponse(response?.data ?? response)),
@@ -368,9 +363,7 @@ export class AdminService {
 
   getExchangeLogs(payload: Record<string, string | number | boolean | undefined> = {}): Observable<AdminExchangeLogsResponse> {
     return this.http
-      .post<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/logs/intercambios', payload, {
-        withCredentials: true,
-      })
+      .post<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/logs/intercambios', payload)
       .pipe(
         map(response => this.normalizeExchangeLogsResponse(response?.data ?? response)),
         tap(response => this.wompiDisponibleSubject.next(response.wompiDisponible)),
@@ -379,9 +372,7 @@ export class AdminService {
 
   getServerLogs(payload: Record<string, string | number | boolean | undefined> = {}): Observable<AdminServerLogsResponse> {
     return this.http
-      .post<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/logs', payload, {
-        withCredentials: true,
-      })
+      .post<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/logs', payload)
       .pipe(
         map(response => this.normalizeServerLogsResponse(response?.data ?? response)),
         tap(response => this.wompiDisponibleSubject.next(response.wompiDisponible)),
@@ -390,9 +381,7 @@ export class AdminService {
 
   getCodes(): Observable<AdminCodesResponse> {
     return this.http
-      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/codigos', {
-        withCredentials: true,
-      })
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/codigos')
       .pipe(
         map(response => this.normalizeCodesResponse(response?.data ?? response)),
         tap(response => this.wompiDisponibleSubject.next(response.wompiDisponible)),
@@ -401,9 +390,7 @@ export class AdminService {
 
   getTopClients(): Observable<AdminTopClientsResponse> {
     return this.http
-      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/clientes', {
-        withCredentials: true,
-      })
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/clientes')
       .pipe(
         map(response => this.normalizeTopClientsResponse(response?.data ?? response)),
         tap(response => this.wompiDisponibleSubject.next(response.wompiDisponible)),

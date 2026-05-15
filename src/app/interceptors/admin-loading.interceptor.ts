@@ -1,6 +1,7 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { finalize } from 'rxjs';
 import Swal from 'sweetalert2';
+import { isAdminApiRequest } from './api-auth-url';
 
 let pendingAdminRequests = 0;
 
@@ -32,7 +33,7 @@ function closeAdminLoading(): void {
 }
 
 export const adminLoadingInterceptor: HttpInterceptorFn = (req, next) => {
-  const isAdminRequest = req.url.startsWith('/api/admin');
+  const isAdminRequest = isAdminApiRequest(req.url);
 
   if (!isAdminRequest) {
     return next(req);
