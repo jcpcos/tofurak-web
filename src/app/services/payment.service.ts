@@ -61,7 +61,7 @@ interface ApiEnvelope<T> {
 
 @Injectable({ providedIn: 'root' })
 export class PaymentService {
-  private readonly baseUrl = '/pagos';
+  private readonly baseUrl = 'https://pagos.gratouxia.com';
  
   constructor(private http: HttpClient) {}
 

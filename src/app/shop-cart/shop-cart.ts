@@ -29,6 +29,7 @@ export class ShopCart implements OnInit, OnDestroy {
   private readonly paypalCurrency = 'USD';
   readonly showBoldButton = true;
   readonly showMercadoPagoButton = false;
+  readonly showPaypalButton = false;
   readonly showWompiButton = false;
 
   cartItems: CartItem[] = [];
@@ -141,7 +142,7 @@ export class ShopCart implements OnInit, OnDestroy {
   }
 
   get canPayWithPaypal(): boolean {
-    return this.cartItems.length > 0;
+    return this.showPaypalButton && this.cartItems.length > 0;
   }
 
   get showWompiUnavailableMessage(): boolean {
@@ -440,7 +441,9 @@ export class ShopCart implements OnInit, OnDestroy {
     this.payingWompi = false;
     this.resetPayPalButtons();
     this.refreshView();
-    void this.tryRenderPayPalButtons();
+    if (this.showPaypalButton) {
+      void this.tryRenderPayPalButtons();
+    }
   }
 
   private resetPayPalButtons(): void {
