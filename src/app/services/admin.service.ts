@@ -308,7 +308,7 @@ export class AdminService {
     }
 
     return this.http
-      .get<ApiEnvelope<any> | any>('/api/admin/compras', {
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/compras', {
         params,
         withCredentials: true,
       })
@@ -320,7 +320,7 @@ export class AdminService {
 
   getAffiliateLiquidations(): Observable<AdminAffiliateLiquidationsResponse> {
     return this.http
-      .get<ApiEnvelope<any> | any>('/api/admin/liquidaciones', {
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/liquidaciones', {
         withCredentials: true,
       })
       .pipe(
@@ -336,7 +336,7 @@ export class AdminService {
     monto: number;
   }): Observable<{ message?: string }> {
     return this.http.post<ApiEnvelope<any> | any>(
-      '/api/admin/liquidaciones/pagar',
+      'https://api.gratouxia.com/admin/liquidaciones/pagar',
       payload,
       { withCredentials: true },
     ).pipe(
@@ -356,7 +356,7 @@ export class AdminService {
     }
 
     return this.http
-      .get<ApiEnvelope<any> | any>('/api/admin/ventas/diarias', {
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/ventas/diarias', {
         params,
         withCredentials: true,
       })
@@ -368,7 +368,7 @@ export class AdminService {
 
   getExchangeLogs(payload: Record<string, string | number | boolean | undefined> = {}): Observable<AdminExchangeLogsResponse> {
     return this.http
-      .post<ApiEnvelope<any> | any>('/api/admin/logs/intercambios', payload, {
+      .post<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/logs/intercambios', payload, {
         withCredentials: true,
       })
       .pipe(
@@ -379,7 +379,7 @@ export class AdminService {
 
   getServerLogs(payload: Record<string, string | number | boolean | undefined> = {}): Observable<AdminServerLogsResponse> {
     return this.http
-      .post<ApiEnvelope<any> | any>('/api/admin/logs', payload, {
+      .post<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/logs', payload, {
         withCredentials: true,
       })
       .pipe(
@@ -390,7 +390,7 @@ export class AdminService {
 
   getCodes(): Observable<AdminCodesResponse> {
     return this.http
-      .get<ApiEnvelope<any> | any>('/api/admin/codigos', {
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/codigos', {
         withCredentials: true,
       })
       .pipe(
@@ -401,7 +401,7 @@ export class AdminService {
 
   getTopClients(): Observable<AdminTopClientsResponse> {
     return this.http
-      .get<ApiEnvelope<any> | any>('/api/admin/clientes', {
+      .get<ApiEnvelope<any> | any>('https://api.gratouxia.com/admin/clientes', {
         withCredentials: true,
       })
       .pipe(
